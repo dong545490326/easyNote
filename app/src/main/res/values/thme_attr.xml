@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="edittext_bg" format="reference|color"/>
+    <attr name="linearlayout_bg" format="reference|color"/>
+    <attr name="floatingactionbutton_bg" format="reference|color"/>
+    <attr name="drawerlayout_bg" format="reference|color"/>
+    <attr name="toolbar_bg" format="reference|color"/>
+    <attr name="checkedbox_bg" format="reference|color"/>
+</resources>

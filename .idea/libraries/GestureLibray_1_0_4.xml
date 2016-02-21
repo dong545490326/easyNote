@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="GestureLibray-1.0.4">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.leo.gesturelibray/GestureLibray/1.0.4/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.leo.gesturelibray/GestureLibray/1.0.4/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.leo.gesturelibray/GestureLibray/1.0.4/7db6409dcee64de565b2c7a0be5e8bb6ce0836dd/GestureLibray-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

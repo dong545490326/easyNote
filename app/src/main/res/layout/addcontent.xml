@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/custom_toolbar"></include>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/ettext_title"
+        style="@style/EditTextTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="#3f51b5"
+        android:gravity="top"
+        android:textColor="#000000"
+        app:met_baseColor="#000000"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_floatingLabelText="标题"
+        app:met_primaryColor="#0b66ec" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/ettext"
+        style="@style/EditTextTheme"
+        android:background="#3f51b5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="好记性不如烂笔头"
+        android:textColor="#000000"
+        app:met_baseColor="#000000"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_floatingLabelText="便签内容"
+        app:met_floatingLabelTextColor="?attr/colorPrimary"
+        app:met_primaryColor="#0b66ec"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ok"
+        android:background="#3f51b5"
+        android:visibility="invisible"
+        app:backgroundTint="#3F51B5"
+        app:borderWidth="0dp"
+        app:rippleColor="#d6f1b111" />
+</LinearLayout>

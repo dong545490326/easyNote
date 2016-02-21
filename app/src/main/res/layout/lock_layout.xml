@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/custom_toolbar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请输入密码"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:id="@+id/lock_text"/>
+    <com.leo.gesturelibray.CustomLockView
+    android:id="@+id/lv_lock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    app:color_error_ring="#2e8cb4"
+    app:color_on_ring="#d20124"
+    app:color_ordinary_ring="#e10a18"
+    app:inner_background_width="19dp"
+    app:inner_ring_width="14dp"
+    app:outer_ring_spacing_width="45dp" />
+</LinearLayout>

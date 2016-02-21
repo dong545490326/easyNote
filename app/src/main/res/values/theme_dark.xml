@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DarkTheme" parent="@android:style/Theme">
+        <item name="edittext_bg">#2d2c2c</item>
+        <item name="linearlayout_bg">#434242</item>
+        <item name="floatingactionbutton_bg">#2d2c2c</item>
+        <item name="drawerlayout_bg">#2d2c2c</item>
+        <item name="toolbar_bg">#2d2c2c</item>
+        <item name="checkedbox_bg">#2d2c2c</item>
+    </style>
+</resources>

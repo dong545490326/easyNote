@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include layout="@layout/custom_toolbar"></include>
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <requestFocus />
+    </LinearLayout>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/s_title"
+        style="@style/EditTextTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tl_custom"
+        android:layout_margin="15dp"
+        android:background="#3f51b5"
+        android:gravity="top"
+        android:textColor="#000000"
+        app:met_baseColor="#000000"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_floatingLabelText="标题"
+        app:met_primaryColor="#0b66ec" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/s_content"
+        style="@style/EditTextTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s_title"
+        android:layout_margin="15dp"
+        android:background="#3f51b5"
+        android:hint="好记性不如烂笔头"
+        android:textColor="#000000"
+        app:met_baseColor="#000000"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_floatingLabelText="便签内容"
+        app:met_floatingLabelTextColor="?attr/colorPrimary"
+        app:met_primaryColor="#0b66ec" />
+
+    <TextView
+        android:id="@+id/s_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s_content"
+        android:layout_margin="15dp"
+        android:gravity="right"
+        android:text="时间"
+        android:textSize="12sp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/sl_save"
+        android:background="#3f51b5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s_time"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ok"
+        android:visibility="invisible"
+        app:backgroundTint="#3F51B5"
+        app:borderWidth="0dp"
+        app:rippleColor="#d6f1b111" />
+</RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
