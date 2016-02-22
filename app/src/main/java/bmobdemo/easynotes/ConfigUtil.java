@@ -21,8 +21,8 @@ public class ConfigUtil {
     }
 
     public static ConfigUtil getInstance(Context context) {
-        if (configUtil==null){
-            configUtil=new ConfigUtil();
+        if (configUtil == null) {
+            configUtil = new ConfigUtil();
         }
         configUtil.setContext(context);
         return configUtil;

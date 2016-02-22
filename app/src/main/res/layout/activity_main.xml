@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="bmobdemo.easynotes.MainActivity">
-    <include layout="@layout/custom_toolbar"/>
+
+    <include layout="@layout/custom_toolbar" />
+
     <View
         android:id="@+id/toolbar_shadow"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@drawable/toolbar_dropshadow" />
-    <include layout="@layout/custom_drawerlayout"/>
+
+    <include layout="@layout/custom_drawerlayout" />
 </LinearLayout>

@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -61,8 +62,6 @@ public class SelectAct extends AppCompatActivity implements View.OnClickListener
         s_content.setText(note.getContent());
         s_title.setText(note.getTitle());
         s_time.setText(note.getTime());
-//        s_title.setFocusable(false);
-//        s_content.setFocusable(false);
         sl_toolbar.setTitle("查看便签");
         sl_toolbar.setTitleTextColor(Color.parseColor("#ffffff"));
         setSupportActionBar(sl_toolbar);
@@ -77,29 +76,30 @@ public class SelectAct extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-switch (v.getId()){
-    case R.id.sl_save:
-        ContentValues cv = new ContentValues();
-        String time = getTime();
-        Editable sl_title = s_title.getText();
-        Editable sl_content = s_content.getText();
-        cv.put(NotesNB.CONTENT, sl_content.toString());
-        cv.put(NotesNB.TITLE, sl_title.toString());
-        cv.put(NotesNB.TIME, time);
-        Log.e("SelectAct2---", note.toString());
-        dbWriter.update(NotesNB.TABLE_NAME, cv,NotesNB.ID + " = ?", new String[]{note.getId()});
-        note note = new note();
-        note.setTitle(sl_title.toString());
-        note.setContent(sl_content.toString());
-        note.setTime(time);
-        Intent intent = new Intent();
-        intent.setClass(SelectAct.this, MainActivity.class);
-        intent.putExtra(Config.NOTE_DATA, note);
-        startActivityForResult(intent, 321);
-        finish();
-        break;
-}
+        switch (v.getId()) {
+            case R.id.sl_save:
+                ContentValues cv = new ContentValues();
+                String time = getTime();
+                Editable sl_title = s_title.getText();
+                Editable sl_content = s_content.getText();
+                cv.put(NotesNB.CONTENT, sl_content.toString());
+                cv.put(NotesNB.TITLE, sl_title.toString());
+                cv.put(NotesNB.TIME, time);
+                Log.e("SelectAct2---", note.toString());
+                dbWriter.update(NotesNB.TABLE_NAME, cv, NotesNB.ID + " = ?", new String[]{note.getId()});
+                note note = new note();
+                note.setTitle(sl_title.toString());
+                note.setContent(sl_content.toString());
+                note.setTime(time);
+                Intent intent = new Intent();
+                intent.setClass(SelectAct.this, MainActivity.class);
+                intent.putExtra(Config.NOTE_DATA, note);
+                startActivityForResult(intent, 321);
+                finish();
+                break;
+        }
     }
+
     public String getTime() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         finish();

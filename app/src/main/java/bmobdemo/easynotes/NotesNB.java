@@ -31,20 +31,21 @@ public class NotesNB extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-    private void update(int id,String title,String content){
+
+    private void update(int id, String title, String content) {
         SQLiteDatabase db = this.getWritableDatabase();
         String where = ID + " = ?";
-        String[] whereValue = { Integer.toString(id) };
+        String[] whereValue = {Integer.toString(id)};
         ContentValues cv = new ContentValues();
         cv.put(TABLE_NAME, title);
         cv.put(CONTENT, content);
         db.update(TABLE_NAME, cv, where, whereValue);
     }
-    public void delete(int id)
-    {
+
+    public void delete(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         String where = ID + " = ?";
-        String[] whereValue ={ Integer.toString(id) };
+        String[] whereValue = {Integer.toString(id)};
         db.delete(TABLE_NAME, where, whereValue);
     }
 }

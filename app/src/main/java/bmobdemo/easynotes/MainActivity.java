@@ -8,12 +8,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -21,19 +20,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.leo.gesturelibray.CustomLockView;
 import com.leo.gesturelibray.util.StringUtils;
 
 import java.util.ArrayList;
@@ -140,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                toolbar.setTitle("便签");
+                toolbar.setTitle("极简便签");
                 mAnimationDrawable.stop();
                 drawerView.setClickable(true);
             }
@@ -159,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void actionSelectActivity(note note) {
         Intent intent = new Intent(this, SelectAct.class);
         intent.putExtra(Config.NOTE_DATA, note);
-        startActivity(intent);
+        startActivityForResult(intent,321);
     }
 
     private void initView() {
@@ -243,18 +234,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             Log.e(MainActivity.ACTIVITY_SERVICE, "数据");
-            return;
         }
-        if (requestCode == 123) {
-            note note = (bmobdemo.easynotes.note) data.getSerializableExtra(Config.NOTE_DATA);
-            list.add(note);
-            mAdapter.notifyDataSetChanged();
-        }
-        if (requestCode == 321) {
-            note note = (bmobdemo.easynotes.note) data.getSerializableExtra(Config.NOTE_DATA);
-            list.add(note);
+         if (requestCode == 321) {
+         list.clear();
+             Cursor cursor = dbReader.query(NotesNB.TABLE_NAME, null, null, null, null, null, null);
+             int i = 0;
+             while (cursor.moveToPosition(i)) {
+                 String title = cursor.getString(cursor.getColumnIndex("title"));
+                 String content = cursor.getString(cursor.getColumnIndex("content"));
+                 String time = cursor.getString(cursor.getColumnIndex("time"));
+                 String id = cursor.getString(cursor.getColumnIndex("_id"));
+                 note note = new note();
+                 note.setTitle(title);
+                 note.setContent(content);
+                 note.setTime(time);
+                 note.setId(id);
+                 list.add(note);
+                 i++;
+             }
             mAdapter.notifyDataSetChanged();
         }
         super.onActivityResult(requestCode, resultCode, data);

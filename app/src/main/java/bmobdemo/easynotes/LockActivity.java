@@ -1,23 +1,16 @@
 package bmobdemo.easynotes;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leo.gesturelibray.CustomLockView;
-import com.leo.gesturelibray.util.*;
 import com.leo.gesturelibray.util.StringUtils;
 
 /**
@@ -49,9 +42,10 @@ public class LockActivity extends AppCompatActivity {
         sl_toolbar.setTitleTextColor(Color.parseColor("#ffffff"));
         setSupportActionBar(sl_toolbar);
         String password = ConfigUtil.getInstance(this).getString(PASS_KEY);
-        if (StringUtils.isEmpty(password)){
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);}
+        if (StringUtils.isEmpty(password)) {
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -78,16 +72,17 @@ public class LockActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        lock_text= (TextView) findViewById(R.id.lock_text);
-        lv_lock= (CustomLockView) findViewById(R.id.lv_lock);
+        lock_text = (TextView) findViewById(R.id.lock_text);
+        lv_lock = (CustomLockView) findViewById(R.id.lv_lock);
         sl_toolbar = (Toolbar) findViewById(R.id.tl_custom);
     }
+
     CustomLockView.OnCompleteListener onCompleteListener = new CustomLockView.OnCompleteListener() {
         @Override
         public void onComplete(String password, int[] indexs) {
             if (isUnLock) {
                 lock_text.setText("密码正确");
-                Intent intent =new Intent(LockActivity.this,MainActivity.class);
+                Intent intent = new Intent(LockActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 Toast.makeText(LockActivity.this, "欢迎来到极简便签！", Toast.LENGTH_SHORT).show();
@@ -96,22 +91,23 @@ public class LockActivity extends AppCompatActivity {
                     mPassword = password;
                     lock_text.setText("请再次绘制密码手势");
                     Toast.makeText(LockActivity.this, "请再次绘制密码手势", Toast.LENGTH_SHORT).show();
-                }else if (com.leo.gesturelibray.util.StringUtils.isEquals(mPassword, password)){
+                } else if (com.leo.gesturelibray.util.StringUtils.isEquals(mPassword, password)) {
                     lock_text.setText("密码手势绘制成功");
                     Toast.makeText(LockActivity.this, "密码手势绘制成功", Toast.LENGTH_SHORT).show();
                     ConfigUtil.getInstance(LockActivity.this).putString(PASS_KEY, password);
                     finish();
-                }else if(!com.leo.gesturelibray.util.StringUtils.isEquals(mPassword, password)){
+                } else if (!com.leo.gesturelibray.util.StringUtils.isEquals(mPassword, password)) {
                     lock_text.setText("两次绘制的密码手势不一致");
                     Toast.makeText(LockActivity.this, "两次绘制的密码手势不一致", Toast.LENGTH_SHORT).show();
                 }
             }
         }
+
         @Override
         public void onError(int errorTimes) {
-            if (isUnLock){
-            Toast.makeText(LockActivity.this, "密码手势错误，还可以绘制" + errorTimes + "次", Toast.LENGTH_SHORT).show();
-        }else {
+            if (isUnLock) {
+                Toast.makeText(LockActivity.this, "密码手势错误，还可以绘制" + errorTimes + "次", Toast.LENGTH_SHORT).show();
+            } else {
                 lock_text.setText("两次绘制的密码手势不一致");
                 Toast.makeText(LockActivity.this, "两次绘制的密码手势不一致", Toast.LENGTH_SHORT).show();
             }
@@ -120,6 +116,7 @@ public class LockActivity extends AppCompatActivity {
         @Override
         public void onPasswordIsShort(int passwordMinLength) {
             Toast.makeText(LockActivity.this, "密码手势不能少于" + passwordMinLength + "个点", Toast.LENGTH_SHORT).show();
-        }};
+        }
+    };
 
 }

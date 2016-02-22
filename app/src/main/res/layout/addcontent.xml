@@ -26,10 +26,10 @@
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/ettext"
         style="@style/EditTextTheme"
-        android:background="#3f51b5"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
+        android:background="#3f51b5"
         android:hint="好记性不如烂笔头"
         android:textColor="#000000"
         app:met_baseColor="#000000"
@@ -37,7 +37,7 @@
         app:met_floatingLabelAlwaysShown="true"
         app:met_floatingLabelText="便签内容"
         app:met_floatingLabelTextColor="?attr/colorPrimary"
-        app:met_primaryColor="#0b66ec"/>
+        app:met_primaryColor="#0b66ec" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/save"
@@ -46,8 +46,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
-        android:src="@mipmap/ok"
         android:background="#3f51b5"
+        android:src="@mipmap/ok"
         android:visibility="invisible"
         app:backgroundTint="#3F51B5"
         app:borderWidth="0dp"
